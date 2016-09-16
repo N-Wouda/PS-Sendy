@@ -1,0 +1,16 @@
+/**
+ * @author    Apium | Niels Wouda <n.wouda@apium.nl>
+ * @copyright 2016, Apium
+ * @license   MIT <https://opensource.org/licenses/MIT>
+*/
+#logo {
+    padding-right: 25px;
+}
+
+.color-green {
+    color: #090;
+}
+
+.text-size-1 {
+    font-size: 1.1em;
+}

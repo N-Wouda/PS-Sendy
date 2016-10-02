@@ -4,7 +4,7 @@
  * @license   MIT <https://opensource.org/licenses/MIT>
  */
 $(document).ready(function () {
-    $("button[name=submitNewsletter]").click(function () {
+    $("[name=submitNewsletter]").click(function () {
         ajax_sendy_subscribe();
     });
 });

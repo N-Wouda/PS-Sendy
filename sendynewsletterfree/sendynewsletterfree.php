@@ -16,7 +16,7 @@ class SendyNewsletterFree extends Module
     {
         $this->name = 'sendynewsletterfree';
         $this->tab = 'advertising_marketing';
-        $this->version = '1.0.0';
+        $this->version = '1.0.1';
         $this->author = 'Apium | Niels Wouda';
         $this->need_instance = true;
 
@@ -76,13 +76,18 @@ class SendyNewsletterFree extends Module
 
         // update the form / settings
         if (Tools::isSubmit('sendySubmit')) {
-            // if all succesfully updated, display success message.
-            if (Configuration::updateValue('SENDY_URL', Tools::getValue('SENDY_URL'))
-                && Configuration::updateValue('SENDY_LIST', Tools::getValue('SENDY_LIST'))
-                && Configuration::updateValue('SENDY_NAME', Tools::getValue('SENDY_NAME'))) {
-                $output .= $this->displayConfirmation($this->l('Settings have been successfully updated!'));
+            if (!Validate::isUrl(Tools::getValue('SENDY_URL'))) {
+                $output .= $this->displayError($this->l('The URL is badly formatted!'));
             } else {
-                $output .= $this->displayError($this->l('Something went wrong while updating the settings!'));
+                // if all succesfully updated, display success message.
+                if (Configuration::updateValue('SENDY_URL', Tools::getValue('SENDY_URL'))
+                    && Configuration::updateValue('SENDY_LIST', Tools::getValue('SENDY_LIST'))
+                    && Configuration::updateValue('SENDY_NAME', Tools::getValue('SENDY_NAME'))
+                ) {
+                    $output .= $this->displayConfirmation($this->l('Settings have been successfully updated!'));
+                } else {
+                    $output .= $this->displayError($this->l('Something went wrong while updating the settings!'));
+                }
             }
         }
 

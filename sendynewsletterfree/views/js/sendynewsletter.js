@@ -12,13 +12,14 @@ $(document).ready(function () {
 function ajax_sendy_subscribe() {
     return $.ajax({
         type: 'POST',
-        url: baseUri + 'module/sendynewsletterfree/subscribe?ajax=true',
+        url: baseUri + 'module/sendynewsletterfree/subscribe',
         headers: {
             "cache-control": "no-cache"
         },
         dataType: 'JSON',
         data: {
-            email: $("#newsletter-input").val()
+            email: $("#newsletter-input").val(),
+            ajax: true
         }
     });
 }

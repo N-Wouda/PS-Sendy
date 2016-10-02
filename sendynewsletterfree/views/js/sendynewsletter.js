@@ -5,11 +5,11 @@
  */
 $(document).ready(function () {
     $("[name=submitNewsletter]").click(function () {
-        ajax_sendy_subscribe();
+        ajax_sendy_subscribe($(this).prev('input[name=email]').val());
     });
 });
 
-function ajax_sendy_subscribe() {
+function ajax_sendy_subscribe(email) {
     return $.ajax({
         type: 'POST',
         url: baseUri + 'module/sendynewsletterfree/subscribe',
@@ -18,7 +18,7 @@ function ajax_sendy_subscribe() {
         },
         dataType: 'JSON',
         data: {
-            email: $("#newsletter-input").val(),
+            email: email,
             ajax: true
         }
     });

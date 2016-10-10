@@ -18,3 +18,9 @@
         </p>
     </div>
 </div>
+<div class="alert alert-warning">
+    {l s='This is the free version of this module. A Pro version is available here, ' mod='sendynewsletterfree'}
+    <a target="_blank" href="http://addons.prestashop.com/en/24357-sendy-newsletter-pro.html">{l s='on the Addons.' mod='sendynewsletterfree'}</a>
+    <br>
+    {l s='It is packed with many more features, such as signup on registration, custom fields, and csv exports!' mod='sendynewsletterfree'}
+</div>
